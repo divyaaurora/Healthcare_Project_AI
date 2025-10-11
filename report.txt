@@ -1,0 +1,4 @@
+This Project presents the development of an automated system for Diabetic Retinopathy detection and severity classification using the APTOS 2019 Blindness Detection dataset.
+Multiple deep learning architectures—including hybrid EfficientNet–ResNet models, Transformer-based networks, and a Lesion-Aware Attention MIL model—were implemented to address class imbalance and ordinal severity prediction.
+Techniques such as Weighted Sampling, SMOTE, Mixup augmentation, and Optuna hyperparameter optimization were employed to enhance performance.
+The best configuration, Hybrid EfficientNet-B0 + ResNet18 with Mixup (α=1.0), achieved 86% validation accuracy, while the Lesion-Aware MIL model demonstrated superior interpretability with a validation loss of 0.2293.
