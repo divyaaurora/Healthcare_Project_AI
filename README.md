@@ -1,6 +1,6 @@
-# 👁 Diabetic Retinopathy Detection and Severity Classification
+#  Diabetic Retinopathy Detection and Severity Classification
 
-## 📖 Overview
+##  Overview:
 This project implements an automated system for **detecting and classifying Diabetic Retinopathy (DR) severity** from retinal fundus images using deep learning.  
 We explored and compared several **hybrid CNN–Transformer architectures**, advanced **data augmentation**, and **class balancing** techniques to achieve robust and interpretable results on the **APTOS 2019 Blindness Detection dataset**.
 
@@ -8,37 +8,37 @@ The primary objective was to identify the most effective training pipeline and m
 
 ---
 
-## 🚀 Key Highlights
+##  Key Highlights:
 
-### 🧠 Hybrid Model Design
+###  Hybrid Model Design
 - Combined **EfficientNet-B0** (for fine-grained convolutional features) with **ResNet18** (for deep residual context).
 - Feature fusion through concatenation of both networks’ outputs (1792-dim vector) followed by fully connected layers for classification.
 - Achieved **up to 86% validation accuracy**, outperforming single-architecture CNNs.
 
-### ⚖ Class Imbalance Handling
+###  Class Imbalance Handling:
 - Applied multiple strategies to handle the skewed dataset distribution:
   - **WeightedRandomSampler** for balanced mini-batches.
   - **Weighted Cross-Entropy** loss to emphasize minority classes.
   - **SMOTE** (Synthetic Minority Oversampling Technique) for feature-space oversampling.
   - **Mixup Augmentation** for soft-label regularization and smoother decision boundaries.
 
-### 🧩 Attention-Based Lesion Fusion
+###  Attention-Based Lesion Fusion:
 - Implemented a **Lesion-Aware Fusion model** combining global and local lesion patches using **Multiple Instance Learning (MIL)**.
 - Integrated **CORN loss** for ordinal regression to preserve severity order between DR grades.
 - Resulted in the **lowest validation loss of 0.2293**, demonstrating strong ordinal consistency.
 
-### 🔍 Transformer Integration
+###  Transformer Integration:
 - Developed an **EfficientNet-B4 + Swin Transformer Hybrid**.
 - The CNN branch captures local texture; the Swin Transformer extracts long-range dependencies.
 - Achieved **82% validation accuracy** with enhanced contextual understanding.
 
-### ⚙ Automated Hyperparameter Tuning
+###  Automated Hyperparameter Tuning:
 - Implemented **Optuna Bayesian optimization** to fine-tune learning rate, optimizer, dropout, and Mixup parameters.
 - Best Optuna trial achieved **84.4%** validation accuracy (learning rate = 8.55e-5, RMSProp, dropout = 0.33, α = 0.95).
 
 ---
 
-## 🧬 Dataset
+##  Dataset:
 
 **Source:** [APTOS 2019 Blindness Detection](https://www.kaggle.com/competitions/aptos2019-blindness-detection)  
 **Total Images:** 3,296 (2,930 training + 366 validation)
@@ -53,7 +53,7 @@ The primary objective was to identify the most effective training pipeline and m
 
 ---
 
-## 🧰 Preprocessing & Augmentation
+##  Preprocessing & Augmentation:
 
 | Step | Description |
 |:-----|:-------------|
@@ -65,7 +65,7 @@ The primary objective was to identify the most effective training pipeline and m
 
 ---
 
-## 🧠 Model Architectures and Experiments
+##  Model Architectures and Experiments:
 
 | Exp. | Model | Description | Validation Result |
 |:----:|:------|:-------------|:----------------:|
@@ -80,7 +80,7 @@ The primary objective was to identify the most effective training pipeline and m
 
 ---
 
-## 🧪 Training Setup
+##  Training Setup:
 
 | Parameter | Value |
 |:-----------|:------|
@@ -94,7 +94,7 @@ The primary objective was to identify the most effective training pipeline and m
 
 ---
 
-## 🧩 Techniques Implemented
+##  Techniques Implemented:
 
 | Technique | Purpose |
 |:-----------|:---------|
@@ -108,7 +108,7 @@ The primary objective was to identify the most effective training pipeline and m
 
 ---
 
-## 📊 Results Summary
+##  Results Summary:
 
 | Technique | Accuracy / Loss | Key Observation |
 |:-----------|:----------------|:----------------|
@@ -122,7 +122,7 @@ The primary objective was to identify the most effective training pipeline and m
 
 ---
 
-## 🧩 Key Observations
+## Key Observations:
 - **Mixup augmentation** produced the highest accuracy (86%), showing strong regularization effects.  
 - **SMOTE + Mixup** improved recall for underrepresented classes.  
 - **Weighted losses** helped stabilize training but yielded marginal gains.  
@@ -132,7 +132,7 @@ The primary objective was to identify the most effective training pipeline and m
 
 ---
 
-## 🔮 Future Work
+## Future Work/Scope:
 - Integrate **Vision Transformer (ViT)** and **ConvNeXt** backbones for improved representation learning.  
 - Incorporate **Grad-CAM** and **Attention Visualization** for clinical interpretability.  
 - Extend training to multi-dataset setups (IDRiD, Messidor) for better generalization.  
@@ -140,7 +140,7 @@ The primary objective was to identify the most effective training pipeline and m
 
 ---
 
-## 📚 References
+## References:
 1. APTOS 2019 Blindness Detection Dataset (Kaggle)  
 2. Tymchenko et al., *ICPRAM 2020* — Multi-task CNN with Focal, MSE, and Ordinal Regression  
 3. Yang et al., *PLOS ONE 2024* — ViT with Masked Autoencoder pretraining  
